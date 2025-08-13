@@ -8,5 +8,6 @@ contextBridge.exposeInMainWorld('api', {
     stopDeletion: () => ipcRenderer.send('stop-deletion'),
     onLogUpdate: (callback) => ipcRenderer.on('log-update', (event, ...args) => callback(...args)),
     onStatsUpdate: (callback) => ipcRenderer.on('stats-update', (event, ...args) => callback(...args)),
-    onProcessFinished: (callback) => ipcRenderer.on('process-finished', () => callback())
+    onProcessFinished: (callback) => ipcRenderer.on('process-finished', () => callback()),
+    getPlatform: () => process.platform
 });

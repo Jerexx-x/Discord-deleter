@@ -2,10 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const welcomeScreen = document.getElementById('welcome-screen');
     const logWrapper = document.getElementById('log-wrapper');
     const logContainer = document.querySelector('.log-container');
-
-    document.getElementById('minimize-btn').addEventListener('click', () => window.api.minimizeWindow());
-    document.getElementById('maximize-btn').addEventListener('click', () => window.api.maximizeWindow());
-    document.getElementById('close-btn').addEventListener('click', () => window.api.closeWindow());
+    const titleBar = document.querySelector('.title-bar');
 
     const tokenInput = document.getElementById('token');
     const userIdInput = document.getElementById('userId');
@@ -22,7 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const statsTotal = document.getElementById('stats-total');
     const statsTime = document.getElementById('stats-time');
 
+    if (window.api.getPlatform() === 'darwin') {
+        titleBar.classList.add('mac');
+    }
+
     const formInputs = [tokenInput, userIdInput, modeSelect, guildIdInput, dmIdInput];
+    let customSelectDiv = null; 
 
     function formatTime(ms) {
         const totalSeconds = Math.floor(ms / 1000);
@@ -39,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateFormVisibility() {
         const isGuild = modeSelect.value === 'GUILD';
-        guildIdRow.style.display = isGuild ? 'contents' : 'none';
-        dmIdRow.style.display = isGuild ? 'none' : 'contents';
+        guildIdRow.style.display = isGuild ? 'flex' : 'none';
+        dmIdRow.style.display = isGuild ? 'none' : 'flex';
     }
 
     modeSelect.addEventListener('change', updateFormVisibility);
@@ -49,10 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function setUiForRunning(running) {
         if (running) {
             formInputs.forEach(el => el.disabled = true);
+            if (customSelectDiv) customSelectDiv.style.pointerEvents = 'none';
             startButton.classList.add('hidden');
             stopButton.classList.remove('hidden');
         } else {
             formInputs.forEach(el => el.disabled = false);
+            if (customSelectDiv) customSelectDiv.style.pointerEvents = 'auto';
             startButton.classList.remove('hidden');
             stopButton.classList.add('hidden');
         }
@@ -116,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedDiv.className = "select-selected";
         selectedDiv.innerHTML = nativeSelect.options[nativeSelect.selectedIndex].innerHTML;
         wrapper.appendChild(selectedDiv);
+        customSelectDiv = selectedDiv;
 
         const optionsDiv = document.createElement("DIV");
         optionsDiv.className = "select-items select-hide";

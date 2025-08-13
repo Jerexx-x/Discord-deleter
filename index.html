@@ -11,21 +11,26 @@
 <body>
     <div class="main-layout">
         <div class="sidebar">
-            <div class="title-bar">
-            </div>
+            <div class="title-bar"></div>
             <div class="sidebar-content">
                 <div class="app-header"><h1>Message Cleaner</h1></div>
                 <div class="form-grid">
-                    <label for="token">Authorization Token</label>
-                    <input type="password" id="token" placeholder="Enter your token" required>
-                    <label for="userId">Your User ID</label>
-                    <input type="text" id="userId" placeholder="Enter your User ID" required>
-                    <label for="mode">Mode</label>
-                    <div class="custom-select-wrapper">
-                        <select id="mode">
-                            <option value="GUILD">Guild (Server)</option>
-                            <option value="DM">DM (Direct Message)</option>
-                        </select>
+                    <div class="form-row">
+                        <label for="token">Authorization Token</label>
+                        <input type="password" id="token" placeholder="Enter your token" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="userId">Your User ID</label>
+                        <input type="text" id="userId" placeholder="Enter your User ID" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="mode">Mode</label>
+                        <div class="custom-select-wrapper">
+                            <select id="mode">
+                                <option value="GUILD">Guild (Server)</option>
+                                <option value="DM">DM (Direct Message)</option>
+                            </select>
+                        </div>
                     </div>
                     <div id="guild-id-row" class="form-row">
                         <label for="guildId">Guild ID</label>
@@ -43,6 +48,7 @@
             </div>
         </div>
         <div class="main-content">
+            <div class="main-title-bar"></div>
             <div id="welcome-screen" class="welcome-screen">
                 <div class="welcome-icon">🗑️</div>
                 <h2>Ready to clean up?</h2>

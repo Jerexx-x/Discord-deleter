@@ -71,26 +71,6 @@ body {
     -webkit-app-region: drag;
 }
 
-.window-controls {
-    display: flex;
-    gap: 8px;
-    -webkit-app-region: no-drag;
-}
-
-.window-btn {
-    -webkit-appearance: none;
-    width: 12px;
-    height: 12px;
-    padding: 0;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.window-btn.red    { background-color: var(--clr-btn-red);    }
-.window-btn.yellow { background-color: var(--clr-btn-yellow); }
-.window-btn.green  { background-color: var(--clr-btn-green);  }
-
 .sidebar-content {
     display: flex;
     flex-direction: column;

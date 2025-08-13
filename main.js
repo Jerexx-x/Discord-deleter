@@ -9,8 +9,10 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 850,
         height: 600,
-        frame: false,
         titleBarStyle: 'hidden',
+        ...(process.platform !== 'darwin' ? { titleBarOverlay: { color: '#28282A',
+    symbolColor: '#ffffffff',
+    height: 60 } } : {}),
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             contextIsolation: true,

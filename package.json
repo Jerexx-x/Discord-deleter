@@ -1,6 +1,6 @@
 {
-  "name": "discord-cleaner-gui",
-  "version": "1.0.0",
+  "name": "discord-deleter",
+  "version": "1.0.1",
   "description": "A GUI tool to clean Discord messages. Core deletion script by Jerexx, GUI and packaging by mandiyama.",
   "main": "main.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "discord",
     "message",
     "cleaner",
+    "deleter",
     "gui",
     "electron"
   ],

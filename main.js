@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, nativeImage } = require('electron');
 const path = require('path');
 
 let mainWindow;
@@ -9,13 +9,15 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 850,
         height: 600,
-        frame: false,
         titleBarStyle: 'hidden',
+        ...(process.platform !== 'darwin' ? { titleBarOverlay: { color: '#28282A', symbolColor: '#ffffffff', height: 30 } } : {}),
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             contextIsolation: true,
             nodeIntegration: false,
         },
+        trafficLightPosition: { x: 20, y: 14 },
+        icon: nativeImage.createFromPath('./build/icon.png'),
     });
     mainWindow.loadFile('index.html');
 }
@@ -223,11 +225,11 @@ async function startDeletion(config) {
         total: totalMessages,
         time: Date.now() - startTime
     });
-    
+
     if (isRunning) {
         log('\n--- Deletion process finished ---');
     }
-    
+
     isRunning = false;
     mainWindow.webContents.send('process-finished');
 }

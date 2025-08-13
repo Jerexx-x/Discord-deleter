@@ -2,16 +2,13 @@
     --font-main: -apple-system, system-ui, sans-serif;
     --font-mono: 'Fira Code', 'SF Mono', 'Menlo', 'Consolas', monospace;
     --font-button: 'Inter', sans-serif;
-
     --clr-bg: #28282A;
     --clr-sidebar-bg: #1D1D1F;
     --clr-text-primary: rgba(255, 255, 255, 0.85);
     --clr-text-secondary: rgba(255, 255, 255, 0.55);
-
     --clr-highlight-blue: #0A84FF;
     --clr-control-bg: rgba(118, 118, 128, 0.24);
     --clr-separator: rgba(84, 84, 88, 0.65);
-
     --clr-btn-red: #ff5f57;
     --clr-btn-yellow: #febc2e;
     --clr-btn-green: #28c840;
@@ -35,9 +32,8 @@ html {
 
 body {
     margin: 0;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
-    
     font-family: var(--font-main);
     font-size: 13px;
     color: var(--clr-text-primary);
@@ -64,32 +60,15 @@ body {
     flex-grow: 1;
 }
 
-.title-bar {
+.title-bar, .main-title-bar {
     flex-shrink: 0;
-    height: 56px;
-    padding: 20px;
+    height: 30px;
     -webkit-app-region: drag;
 }
 
-.window-controls {
-    display: flex;
-    gap: 8px;
-    -webkit-app-region: no-drag;
+.title-bar.mac {
+    height: 45px;
 }
-
-.window-btn {
-    -webkit-appearance: none;
-    width: 12px;
-    height: 12px;
-    padding: 0;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.window-btn.red    { background-color: var(--clr-btn-red);    }
-.window-btn.yellow { background-color: var(--clr-btn-yellow); }
-.window-btn.green  { background-color: var(--clr-btn-green);  }
 
 .sidebar-content {
     display: flex;
@@ -110,8 +89,13 @@ body {
     gap: 16px;
 }
 
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 label {
-    margin-bottom: -8px;
     font-size: 12px;
     font-weight: 500;
     color: var(--clr-text-secondary);
@@ -123,11 +107,9 @@ input,
     padding: 8px 12px;
     border: 1px solid transparent;
     border-radius: 7px;
-    
     font-size: 14px;
     color: var(--clr-text-primary);
     background-color: var(--clr-control-bg);
-    
     transition: background-color 0.2s, border-color 0.2s;
 }
 
@@ -149,6 +131,7 @@ input::-ms-input-placeholder {
 .button-container {
     width: 100%;
     margin-top: auto;
+    padding-top: 16px;
 }
 
 #startButton,
@@ -157,13 +140,11 @@ input::-ms-input-placeholder {
     padding: 10px;
     border: none;
     border-radius: 8px;
-    
     color: #fff;
     font-family: var(--font-button);
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    
     transition: background-color 0.2s;
 }
 
@@ -184,7 +165,6 @@ input::-ms-input-placeholder {
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-
     padding: 20px;
     text-align: center;
     color: var(--clr-text-secondary);
@@ -216,7 +196,7 @@ input::-ms-input-placeholder {
     flex-direction: column;
     flex-grow: 1;
     min-height: 0;
-    padding: 20px;
+    padding: 0 20px 20px;
 }
 
 .log-header-container {
@@ -235,10 +215,8 @@ input::-ms-input-placeholder {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding-bottom: 10px;
     border-bottom: 1px solid var(--clr-separator);
-
     font-family: var(--font-mono);
     font-size: 12px;
 }
@@ -324,7 +302,6 @@ div#log:focus {
     top: 50%;
     right: 12px;
     transform: translateY(-50%);
-
     font-size: 12px;
     color: var(--clr-text-secondary);
 }
@@ -335,11 +312,11 @@ div#log:focus {
     top: calc(100% + 5px);
     left: 0;
     right: 0;
-
     border: 1px solid var(--clr-separator);
     border-radius: 6px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
     background-color: rgba(58, 58, 60, 0.9);
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     overflow: hidden;
 }

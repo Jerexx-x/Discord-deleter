@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://github.com/Jerexx-x/discord-cleaner/blob/main/images/icon.png?raw=true" alt="logo" width="150">
+  <img src="https://github.com/Jerexx-x/discord-deleter/blob/main/images/icon.png?raw=true" alt="logo" width="150">
 </p>
 
-<h1 align="center">Discord Cleaner GUI</h1>
+<h1 align="center">Discord Deleter</h1>
 
 <p align="center">
   A simple application with a graphical user interface for bulk deleting messages in Discord.
@@ -11,9 +11,9 @@
 ---
 
 <p align="center">
-  <img src="https://github.com/Jerexx-x/discord-cleaner/blob/main/images/1.png?raw=true" alt="screenshot-1" width="350">
+  <img src="https://github.com/Jerexx-x/discord-deleter/blob/main/images/1.png?raw=true" alt="screenshot-1" width="350">
   &nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/Jerexx-x/discord-cleaner/blob/main/images/2.png?raw=true" alt="screenshot-2" width="350">
+  <img src="https://github.com/Jerexx-x/discord-deleter/blob/main/images/2.png?raw=true" alt="screenshot-2" width="350">
 </p>
 
 ---
@@ -38,12 +38,12 @@ To run this application, you will need [Node.js](https://nodejs.org/).
 
 1.  **Clone the repository**
     ```sh
-    git clone https://github.com/Jerexx-x/discord-cleaner.git
+    git clone https://github.com/Jerexx-x/discord-deleter.git
     ```
 
 2.  **Navigate to the project directory**
     ```sh
-    cd discord-cleaner
+    cd discord-deleter
     ```
 
 3.  **Install dependencies**

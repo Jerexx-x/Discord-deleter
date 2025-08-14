@@ -34,9 +34,9 @@
     "electron-builder": "^24.13.3"
   },
   "build": {
-    "appId": "tw.discord.Cleaner",
-    "productName": "Discord Message Cleaner",
-    "copyright": "Jerrxx & mandiyama",
+    "appId": "tw.discord.deleter",
+    "productName": "Discord Deleter",
+    "copyright": "Jerexx & mandiyama",
     "directories": {
       "output": "dist"
     },
@@ -48,7 +48,7 @@
       "credits": "Core deletion script by Jerexx, GUI and packaging by mandiyama"
     },
     "win": {
-      "target": "nsis",
+      "target": [ "portable", "nsis" ],
       "icon": "build/icon.ico"
     },
     "linux": {
@@ -65,6 +65,9 @@
         "zip"
       ],
       "icon": "build/icon.icns"
+    },
+    "portable": {
+      "artifactName": "${productName} Portable ${version}.exe"
     }
   }
 }

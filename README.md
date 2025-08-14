@@ -11,9 +11,9 @@
 ---
 
 <p align="center">
-  <img src="https://github.com/Jerexx-x/discord-deleter/blob/main/images/1.png?raw=true" alt="screenshot-1" width="350">
+  <img src="./images/1.png" alt="Screenshot of the opened app" width="350">
   &nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/Jerexx-x/discord-deleter/blob/main/images/2.png?raw=true" alt="screenshot-2" width="350">
+  <img src="./images/2.png" alt="Screenshot of the program in use" width="350">
 </p>
 
 ---
@@ -55,6 +55,8 @@ To run this application, you will need [Node.js](https://nodejs.org/).
     ```sh
     npm start
     ```
+
+#### Also, on macOS you may need to run `xattr -c path/to/application.app` in Terminal, where `path/to/application.app` is the path to installed Discord Deleter.
 
 ---
 
